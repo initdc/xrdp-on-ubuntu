@@ -34,7 +34,7 @@ solve_blackscreen() {
     else
         sed -i "5 i unset DBUS_SESSION_BUS_ADDRESS" /etc/xrdp/startwm.sh
         sed -i "6 i unset XDG_RUNTIME_DIR\n" /etc/xrdp/startwm.sh
-        systemctl restart xrdp
+        service xrdp restart
         echo "blackscreen solved rightnow"
     fi
 }
