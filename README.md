@@ -37,7 +37,9 @@ sudo sh <(curl -L xrdp.ubtu.net)
 
 ## Reference
 
-[xrdp完美实现Windows远程访问Ubuntu 20.04](https://www.sohu.com/a/446523786_495675)
+[xrdp 完美实现 Windows 远程访问 Ubuntu 20.04](https://www.sohu.com/a/446523786_495675)
+
+[How to fix “Authentication is required to create a color profile/managed device” on Ubuntu 20.04 / 20.10](https://devanswers.co/how-to-fix-authentication-is-required-to-create-a-color-profile-managed-device-on-ubuntu-20-04-20-10/)
 
 ## License
 

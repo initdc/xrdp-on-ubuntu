@@ -39,6 +39,20 @@ solve_blackscreen() {
     fi
 }
 
+fix_auth_prompt() {
+    echo > /etc/polkit-1/localauthority.conf.d/02-allow-colord.conf 'polkit.addRule(function(action, subject) {
+ if ((action.id == "org.freedesktop.color-manager.create-device" ||
+ action.id == "org.freedesktop.color-manager.create-profile" ||
+ action.id == "org.freedesktop.color-manager.delete-device" ||
+ action.id == "org.freedesktop.color-manager.delete-profile" ||
+ action.id == "org.freedesktop.color-manager.modify-device" ||
+ action.id == "org.freedesktop.color-manager.modify-profile") &&
+ subject.isInGroup("{users}")) {
+ return polkit.Result.YES;
+ }
+});'
+}
+
 main() {
     if [ "$(id -u)" != 0 ]; then
         echo "This script need root user access"
@@ -50,10 +64,12 @@ main() {
         install_soft
         add_user
         solve_blackscreen
+        fix_auth_prompt
     else
         read -p "xrdp installed, any key to set xrdp" a
         add_user
         solve_blackscreen
+        fix_auth_prompt
     fi
 }
 
