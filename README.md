@@ -32,7 +32,9 @@ sudo ufw reload
 ```sh
 # Need root user access
 
-sudo sh <(curl -L xrdp.ubtu.net)
+sudo su
+
+sh <(curl -L xrdp.ubtu.net)
 ```
 
 ## Reference
